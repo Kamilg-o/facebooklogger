@@ -24,3 +24,6 @@ username.clear()
 username.send_keys('username')
 password.clear()
 password.send_keys('password')
+
+login_button = driver.find_element_by_xpath("//button[[text()='Zaloguj się']")
+login_button.click()
