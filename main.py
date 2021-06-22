@@ -4,8 +4,14 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
 import time
 
+chrome_options = webdriver.ChromeOptions()
+prefs = {"profile.default_content_setting_values.notifications" : 2}
+chrome_options.add_experimental_option("prefs",prefs)
+
+
+
 # launching the webdriver
-driver = webdriver.Chrome()
+driver = webdriver.Chrome(chrome_options=chrome_options)
 
 # website launch
 driver.get("http://www.facebook.com")
@@ -29,3 +35,6 @@ time.sleep(3)
 
 login_button = driver.find_element_by_xpath("//button[text()='Zaloguj się']")
 login_button.click()
+
+time.sleep(2)
+
